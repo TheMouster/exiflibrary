@@ -54,9 +54,6 @@ namespace ExifLibrary
         /// <summary>
         /// Returns a DateTime object converted from the given byte array.
         /// </summary>
-        /// <remarks>
-        /// GPSDate field does have a time component.
-        /// </remarks>
         public static DateTime ToDateTime(byte[] data, bool hastime)
         {
             string str = ToAscii(data, Encoding.ASCII);
