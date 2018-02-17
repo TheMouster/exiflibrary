@@ -54,6 +54,9 @@ namespace ExifLibrary
         /// <summary>
         /// Returns a DateTime object converted from the given byte array.
         /// </summary>
+        /// <remarks>
+        /// GPSDate field does have a time component.
+        /// </remarks>
         public static DateTime ToDateTime(byte[] data, bool hastime)
         {
             string str = ToAscii(data, Encoding.ASCII);
@@ -67,7 +70,7 @@ namespace ExifLibrary
                     // can use single digits. See Issue 21.
                     return new DateTime(int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]), int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]));
                 }
-                else if (!hastime && parts.Length == 3)
+                else if (!hastime)
                 {
                     // yyyy:MM:dd
                     return new DateTime(int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]));
