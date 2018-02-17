@@ -116,3 +116,4 @@ UpgradeLog*.XML
 *.opendb
 *.db
 .vs/
+packages/
